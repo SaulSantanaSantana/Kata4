@@ -30,6 +30,7 @@ public class kata4 {
         this.filename = filename;
     }
     
+    
     public void execute(){
         input();
         process();
