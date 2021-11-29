@@ -17,18 +17,41 @@ import view.MailListReader;
  * @author saul
  */
 public class kata4 {
-
+    
+    private String filename;
+    private List<Mail> maillist;
+    private Histogram<String> histogram;
+    private HistogramDisplay histogramd;
+    
     /**
      * @param args the command line arguments
      */
-        
+    public kata4(String filename){
+        this.filename = filename;
+    }
+    
+    public void execute(){
+        input();
+        process();
+        output();
+    }
+    
+    public void input(){
+        maillist = MailListReader.read(filename);
+    }
+    
+    public void process(){
+        histogram = MailHistogramBuilder.build(maillist);
+    }
+    
+    public void output(){
+        histogramd = new HistogramDisplay(histogram);
+        histogramd.execute(); 
+    }
+    
     public static void main(String[] args) {
-        
-        List<Mail> list = MailListReader.read("email.txt");
-        Histogram histo = MailHistogramBuilder.build(list);
-        
-        HistogramDisplay histogram = new HistogramDisplay(histo);
-        histogram.execute();
+        kata4 control = new kata4("email.txt");
+        control.execute();   
     }
 
     
