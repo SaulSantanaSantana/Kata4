@@ -23,9 +23,7 @@ public class kata4 {
     private Histogram<String> histogram;
     private HistogramDisplay histogramd;
     
-    /**
-     * @param args the command line arguments
-     */
+
     public kata4(String filename){
         this.filename = filename;
     }
